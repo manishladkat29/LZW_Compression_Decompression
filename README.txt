@@ -1,5 +1,4 @@
 Name: Manish Ladkat
-Student Id: 801167905
 Programming Project 1: LZW Compression
 
 Description: This is an implementation of the LZW algorithm in python to compress and decompress the data in the files.
