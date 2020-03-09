@@ -1,8 +1,21 @@
+# Name: Manish Ladkat
+# ID : 801167905
+
 from struct import pack
 from sys import argv
 
 INIT_CHARS_LENGTH = 256
+if len(argv) != 3:
+    print("You should pass 2 arguments inputfilename and bit length to run the program")
+    print("File not decoded!")
+    exit(0)
 input_file_name, N = argv[1:]  # Store the argument values
+if not str(input_file_name).endswith(".txt"):
+    print("The input file should be a .txt extension file")
+    exit(0)
+if int(N) <= 8 or int(N) > 16:
+    print("The bit length should be usually in the range of 9 to 16 inclusive\n File not decoded!")
+    exit(0)
 max_table_size = 2 ** int(N)  # N is number of encoding bits
 dictionary = {}
 
