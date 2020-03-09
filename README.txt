@@ -29,6 +29,8 @@ How to run the file:
 4. To compress data type command on terminal => python Compression.py inputFileName.txt number_of_bits
 e.g. : python Compression.py input1.txt 12
 The compressed file will be stored as input1.lzw in the current working directory
+Note: The inputfile should have .txt extension and the bit length should be in the range 9 to 16 inclusive
 5. To decompress data type command on terminal => python Decompression.py inputFileName.lzw number_of_bits
 e.g. : python Decompression.py input1.lzw 12
 The decompressed file will be stored as input1_decoded.txt in the current working directory
+Note: The inputfile should have .lzw extension and the bit length should be in the range 9 to 16 inclusive
