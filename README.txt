@@ -8,9 +8,8 @@ The dictionary data structure of python has been used to store the data, and the
 used to convert the integer data to 16-bit or 2 bytes data and vice versa respectively.
 
 Files break down:
-1. Compression.py
-2. Decompression.py
-3. README.txt
+1. Compression.py - The file takes an input from .txt file uses the dictionary data structure and then encodes it and writes it back to the .lzw file in the UTF-16BE encoding format.
+2. Decompression.py - The file takes the input from a .lzw file which which is encoded converts it back to integer and then decodes it to get the orginal result and writes it back to the _decoded.txt file.
 
 Summary:
 The implementation works well for both the compression and decompression of the data and gets the desired output for the examples provided on canvas.
