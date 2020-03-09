@@ -8,8 +8,8 @@ The dictionary data structure of python has been used to store the data, and the
 used to convert the integer data to 16-bit or 2 bytes data and vice versa respectively.
 
 Files break down:
-1. Compression.py : The file implements the LZW compression algorithm in python where the input is read from the text file the data is compressed using the algorithm and stored in a binary .lzw file in 16 bit UTF-16BE format.
-2. Decompression.py : The file implements the LZW decompression algorithm in python where the input is a compressed data which is read from the .lzw file and the algrotihm converts it to the decompressed/original file again.
+1. Compression.py
+2. Decompression.py
 3. README.txt
 
 Summary:
@@ -27,8 +27,8 @@ How to run the file:
 2. Set the current working directory to the location where the files are present.
 3. Copy the input file to the current working directory.
 4. To compress data type command on terminal => python Compression.py inputFileName.txt number_of_bits
-   e.g. : python Compression.py input1.txt 12
-   The compressed file will be stored as input1.lzw in the current working directory
+e.g. : python Compression.py input1.txt 12
+The compressed file will be stored as input1.lzw in the current working directory
 5. To decompress data type command on terminal => python Decompression.py inputFileName.lzw number_of_bits
-   e.g. : python Decompression.py input1.lzw 12
-   The decompressed file will be stored as input1_decoded.txt in the current working directory
+e.g. : python Decompression.py input1.lzw 12
+The decompressed file will be stored as input1_decoded.txt in the current working directory
