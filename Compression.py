@@ -17,11 +17,11 @@ if int(N) <= 8 or int(N) > 16:
     print("The bit length should be usually in the range of 9 to 16 inclusive\n File not decoded!")
     exit(0)
 max_table_size = 2 ** int(N)  # N is number of encoding bits
-dictionary = {}
+dictionary_codes = {}
 
 # Store the character and their corresponding ascii value in dictionary
 for i in range(INIT_CHARS_LENGTH):
-    dictionary[chr(i)] = i
+    dictionary_codes[chr(i)] = i
 
 dictionary_pointer = INIT_CHARS_LENGTH  # Initialize the dictionary pointer to 256
 string = ""
@@ -40,26 +40,26 @@ symbol = ""
 while cnt < len(data_read):  # the for loop will run until the data is present
     symbol = data_read[cnt]
     print("STRING: " + string + ", SYMBOL: " + symbol + ", STRING + SYMBOL: " + string + symbol, end=' ; ')
-    if string + symbol in dictionary:
+    if string + symbol in dictionary_codes:
         print("STRING+SYMBOL in TABLE? : Y")
         string = string + symbol
     else:
         print("STRING+SYMBOL in TABLE? : N", end=' ; ')
         # Write the encoded unsigned short output in the big endian format to the output file
-        output_file.write(pack('>H', int(dictionary[string])))
-        print("OUTPUT: " + str(dictionary[string]), end=' ; ')
-        if len(dictionary) < max_table_size:  # check if table is not full
+        output_file.write(pack('>H', int(dictionary_codes[string])))
+        print("OUTPUT: " + str(dictionary_codes[string]), end=' ; ')
+        if len(dictionary_codes) < max_table_size:  # check if table is not full
             print("TABLE UPDATE: " + str(dictionary_pointer))
             # Store the value of the newly formed string to the dictionary
-            dictionary[string + symbol] = dictionary_pointer
+            dictionary_codes[string + symbol] = dictionary_pointer
             dictionary_pointer += 1
         string = symbol
     cnt += 1
 input_file.close()  # Close the input file
 # Write the value of the last remaining string in the encoded format to the output file
-if string in dictionary:
+if string in dictionary_codes:
     print("STRING: " + string + ", SYMBOL: " + symbol + ", STRING + SYMBOL: " + string + symbol, end=' ; ')
     print("STRING+SYMBOL in TABLE? : Y", end=' ; ')
-    print("OUTPUT: " + str(dictionary[string]))
-    output_file.write(pack('>H', int(dictionary[string])))
+    print("OUTPUT: " + str(dictionary_codes[string]))
+    output_file.write(pack('>H', int(dictionary_codes[string])))
 output_file.close()  # Close the output file

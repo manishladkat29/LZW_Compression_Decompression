@@ -54,8 +54,7 @@ while True:
         print("NEW_STRING: " + new_string, end=' ; ')
         if len(dictionary_codes) < max_table_size:  # check if table is not full
             dictionary_codes[dictionary_pointer] = string + new_string[0]
-            print("TABLE UPDATE: " + str(dictionary_pointer) + " : " + dictionary_codes[dictionary_pointer],
-                  end=' ; ')
+            print("TABLE UPDATE: " + str(dictionary_pointer) + " : " + dictionary_codes[dictionary_pointer], end=' ; ')
             dictionary_pointer += 1
         output_file.write(new_string)  # write the new string to the output file
         print("OUTPUT: " + new_string, end=' ; ')
