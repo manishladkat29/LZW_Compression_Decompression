@@ -13,9 +13,9 @@ Files break down:
 
 Summary:
 The implementation works well for both the compression and decompression of the data and gets the desired output for the examples provided on canvas.
+The compression works well for the data having repeating values, if the input data does not have repeating values the compressed/encoded file will have data similar as the input file.
 The compression generates a inputfilename.lzw file which has the compressed data for the inputfilename.txt file which was passed as an argument along with the number of bits.
 The decompression file takes the inputfilename.lzw file and number of bits as the input and decompresses to give the output same as that in inputfilename.txt file in the inputfilename_decoded.txt file.
-The compression works well for the data having repeating values, if the input data does not have repeating values the compressed/encoded file will have data similar as the input file.
 
 Programming Language: Python
 
