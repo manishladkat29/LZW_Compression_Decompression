@@ -31,10 +31,11 @@ output_file = open(output_file_name + "_decoded.txt", "w")
 input_file = open(input_file_name, 'rb')
 
 # Read and decode the first 16 bit value and write the character to the output file
-data = input_file.read(2)
-(code,) = unpack('>H', data)  # Decode the the data read and store it to code variable
-print("CODE: " + str(code), end=' ; ')
-string = dictionary_codes[code]
+data = input_file.read(2)  # Combine the two blocks of bits as it is a single number
+print(data)
+(encoded_code,) = unpack('>H', data)  # Decode the the data read and store it to code variable
+print("CODE: " + str(encoded_code), end=' ; ')
+string = dictionary_codes[encoded_code]
 output_file.write(string)
 print("OUTPUT: " + string, end=' ; ')
 print("STRING: " + string)
@@ -43,14 +44,14 @@ print("STRING: " + string)
 while True:
     data = input_file.read(2)
     if len(data) == 2:
-        (code,) = unpack('>H', data)
-        print("CODE: " + str(code), end=' ; ')
-        if code not in dictionary_codes:  # If the code is not in dictionary then form a new_string
+        (encoded_code,) = unpack('>H', data)
+        print("CODE: " + str(encoded_code), end=' ; ')
+        if encoded_code not in dictionary_codes:  # If the code is not in dictionary then form a new_string
             print("TABLE CODE DEFINED: N", end=' ; ')
             new_string = string + string[0]
         else:  # Else assign the value to the corresponding code to the new string
             print("TABLE CODE DEFINED: Y", end=' ; ')
-            new_string = dictionary_codes[code]
+            new_string = dictionary_codes[encoded_code]
         print("NEW_STRING: " + new_string, end=' ; ')
         if len(dictionary_codes) < max_table_size:  # check if table is not full
             dictionary_codes[dictionary_pointer] = string + new_string[0]
